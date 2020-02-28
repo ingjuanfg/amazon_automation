@@ -1,0 +1,49 @@
+group 'co.com.amazon'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.1.8")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+ext{
+    serenityVersion = '2.1.8'
+    serenityCucumberVersion = '1.9.51'
+}
+
+dependencies {
+    implementation "net.serenity-bdd:serenity-core:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-junit:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityCucumberVersion"
+    
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'io.appium:java-client:7.3.0'
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testImplementation 'org.assertj:assertj-core:3.15.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.30'
+    testImplementation 'org.hamcrest:hamcrest-core:1.3'
+}
+
+gradle.startParameter.continueOnFailure = true
