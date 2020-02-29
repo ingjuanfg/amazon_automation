@@ -20,8 +20,7 @@ public class Search implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Enter.theValue(product).into(TXT_SEARCH),
-                Click.on(BTN_SEARCH),
-                Click.on(BTN_PRODUCT)
+                Click.on(BTN_SEARCH)
         );
     }
 

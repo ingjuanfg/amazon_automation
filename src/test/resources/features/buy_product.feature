@@ -3,7 +3,7 @@ Feature:  Buy a product
   Want buy a product from Amazon
 
   Scenario:  Add product to the car
-    When The user search the product dog bed
+    When The user search the product pokemon puppet
     And add it to the car
     #And delete the product from the car
     #Then he should see the car empty
