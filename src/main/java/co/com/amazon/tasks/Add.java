@@ -5,8 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static co.com.amazon.userinterface.CarPage.BTN_ADD_CAR;
-import static co.com.amazon.userinterface.CarPage.BTN_PRODUCT;
+import static co.com.amazon.userinterface.CarPage.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Add implements Task {
@@ -15,7 +14,8 @@ public class Add implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_PRODUCT),
-                Click.on(BTN_ADD_CAR)
+                Click.on(BTN_ADD_CAR),
+                Click.on(BTN_CAR)
         );
     }
 

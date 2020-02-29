@@ -5,5 +5,4 @@ Feature:  Buy a product
   Scenario:  Add product to the car
     When The user search the product pokemon puppet
     And add it to the car
-    #And delete the product from the car
-    #Then he should see the car empty
+    Then the user should see it in the car list
