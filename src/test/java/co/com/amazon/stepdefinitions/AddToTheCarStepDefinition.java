@@ -1,5 +1,6 @@
 package co.com.amazon.stepdefinitions;
 
+import co.com.amazon.tasks.Add;
 import co.com.amazon.tasks.Search;
 import cucumber.api.java.en.When;
 
@@ -16,5 +17,8 @@ public class AddToTheCarStepDefinition {
 
     @When("^add it to the car$")
     public void addItToTheCar() {
+        Jeremias.attemptsTo(
+                Add.toTheCar()
+        );
     }
 }
