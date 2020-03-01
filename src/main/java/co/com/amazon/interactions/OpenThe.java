@@ -1,4 +1,4 @@
-package co.com.amazon.tasks;
+package co.com.amazon.interactions;
 
 import co.com.amazon.userinterface.IndexPage;
 import net.serenitybdd.screenplay.Actor;

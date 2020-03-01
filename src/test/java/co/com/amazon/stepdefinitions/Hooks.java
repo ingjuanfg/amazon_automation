@@ -1,6 +1,6 @@
 package co.com.amazon.stepdefinitions;
 
-import co.com.amazon.tasks.OpenThe;
+import co.com.amazon.interactions.OpenThe;
 import cucumber.api.java.Before;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
