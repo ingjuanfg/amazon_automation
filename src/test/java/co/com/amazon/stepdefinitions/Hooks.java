@@ -9,20 +9,28 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
-public class Hooks {
+import static co.com.amazon.utils.DriverManager.amazonCapabilities;
 
+public class Hooks {
     @Managed(driver = "chrome")
     private WebDriver theBrowser;
-    public static final Actor Jeremias = Actor.named("Daniel");
+    public static final Actor Daniel = Actor.named("Daniel");
 
     @Before
     public void prepareStage(){
         OnStage.setTheStage(new OnlineCast());
     }
 
-    @Before
-    public void initialization() {
-        Jeremias.can(BrowseTheWeb.with(theBrowser));
-        Jeremias.wasAbleTo(OpenThe.browser());
+    @Before("@Web")
+    public void webInitialization() {
+        Daniel.can(BrowseTheWeb.with(theBrowser));
+        Daniel.wasAbleTo(OpenThe.browser());
+    }
+
+    @Before("@Desktop")
+    public void desktopInitialization(){
+        Daniel.can(
+                BrowseTheWeb.with(amazonCapabilities())
+        );
     }
 }
