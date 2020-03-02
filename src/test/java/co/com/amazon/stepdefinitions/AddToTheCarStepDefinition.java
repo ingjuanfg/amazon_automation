@@ -47,7 +47,7 @@ public class AddToTheCarStepDefinition {
     }
 
     @Then("^He should see it in the car list$")
-    public void theuserSholudSeeItInCar() {
+    public void theuserShouldSeeItInCar() {
         Daniel.should(
                 seeThat(ExistProductsQuestion.inCar())
         );

@@ -5,8 +5,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.amazon.userinterface.AmazonPage.BUTTON_ADD_TO_CART;
-import static co.com.amazon.userinterface.AmazonPage.CARD_ARTICLE;
+import static co.com.amazon.userinterface.AmazonPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ProductToTheCar implements Task {
@@ -16,7 +15,8 @@ public class ProductToTheCar implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CARD_ARTICLE, isVisible()),
                 Click.on(CARD_ARTICLE),
-                Click.on(BUTTON_ADD_TO_CART)
+                Click.on(BUTTON_ADD_TO_CAR),
+                Click.on(BUTTON_CAR)
         );
     }
 }
