@@ -11,6 +11,7 @@ import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
 import static co.com.amazon.utils.DriverManager.amazonCapabilities;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getProxiedDriver;
 
 public class Hooks {
     @Managed(driver = "chrome")

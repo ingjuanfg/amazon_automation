@@ -28,6 +28,7 @@ public class AddToTheCarStepDefinition {
     @When("^The buyer search the product (.*)$")
     public void searchProduct(String product) {
         Daniel.attemptsTo(
+                Search.aProduct()
         );
     }
 

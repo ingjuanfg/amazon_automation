@@ -22,11 +22,11 @@ public class Open implements Interaction {
             AndroidDriver driver;
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("automationName", "uiautomator2");
-            capabilities.setCapability("deviceName", "");
-            capabilities.setCapability("platformVersion", "");
+            capabilities.setCapability("deviceName", "ESU4C18A16000384");
+            capabilities.setCapability("platformVersion", "9");
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("appPackage", "com.amazon.mShop.android.shopping");
-            capabilities.setCapability("appActivity", "com.amazon.mShop.navigation.MainActivity");
+            capabilities.setCapability("appActivity", "com.amazon.mShop.splashscreen.StartupActivity");
             capabilities.setCapability("autoGrantPermissions", true);
             capabilities.setCapability("fullReset", false);
             capabilities.setCapability("noReset", false);
