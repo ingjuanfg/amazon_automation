@@ -1,5 +1,6 @@
 package co.com.amazon.stepdefinitions;
 
+import co.com.amazon.interactions.Open;
 import co.com.amazon.interactions.OpenThe;
 import cucumber.api.java.Before;
 import net.serenitybdd.screenplay.Actor;
@@ -31,6 +32,13 @@ public class Hooks {
     public void desktopInitialization(){
         Daniel.can(
                 BrowseTheWeb.with(amazonCapabilities())
+        );
+    }
+
+    @Before("@Mobile")
+    public void mobileInitialization(){
+        Daniel.attemptsTo(
+                Open.app()
         );
     }
 }

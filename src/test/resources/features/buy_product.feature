@@ -15,4 +15,7 @@ Feature:  Buy a product
     Then the user should see it in the car list
 
   @Mobile
-  Scenario: Buy a book
+  Scenario: Add a Pokemon product to the car - Web
+    When The buyer search the product pokemon puppet
+    And put the product to the car
+    Then the buyer should see it in the car list

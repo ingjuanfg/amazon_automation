@@ -25,6 +25,12 @@ public class AddToTheCarStepDefinition {
         );
     }
 
+    @When("^The buyer search the product (.*)$")
+    public void searchProduct(String product) {
+        Daniel.attemptsTo(
+        );
+    }
+
     @When("^add it to the car$")
     public void addItToTheCar() {
         Daniel.attemptsTo(
@@ -39,6 +45,12 @@ public class AddToTheCarStepDefinition {
         );
     }
 
+    @When("^put the product to the car$")
+    public void putToTheCar() {
+        Daniel.attemptsTo(
+        );
+    }
+
     @Then("^the user should see it in the car list$")
     public void theuserSholudSeeItInCarList() {
         Daniel.should(
@@ -50,6 +62,12 @@ public class AddToTheCarStepDefinition {
     public void theuserShouldSeeItInCar() {
         Daniel.should(
                 seeThat(ExistProductsQuestion.inCar())
+        );
+    }
+
+    @Then("^the buyer should see it in the car list$")
+    public void theBuyerShouldSeeItInCar() {
+        Daniel.should(
         );
     }
 }
