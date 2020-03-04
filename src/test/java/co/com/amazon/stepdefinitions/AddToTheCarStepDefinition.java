@@ -1,36 +1,27 @@
 package co.com.amazon.stepdefinitions;
 
-import co.com.amazon.interactions.Open;
-import co.com.amazon.interactions.OpenThe;
 import co.com.amazon.questions.ExistProducts;
 import co.com.amazon.tasks.Add;
 import co.com.amazon.tasks.Search;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static co.com.amazon.utils.DriverManager.amazonCapabilities;
+import static co.com.amazon.utils.DriverManager.webCapabilities;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getProxiedDriver;
 
 public class AddToTheCarStepDefinition {
 
-    @Before
-    public void prepareStage(){
-        OnStage.setTheStage(new OnlineCast());
-    }
-
     @When("^The user search the product (.*)$")
     public void searchTheProduct(String product) {
-        theActorCalled("Juan").can(BrowseTheWeb.with(getProxiedDriver()));
-        theActorInTheSpotlight().wasAbleTo(OpenThe.browser());
+        OnStage.setTheStage(new OnlineCast());
+        theActorCalled("Juan").can(BrowseTheWeb.with(webCapabilities()));
         theActorInTheSpotlight().attemptsTo(
                 Search.theProduct(product)
         );
@@ -38,6 +29,7 @@ public class AddToTheCarStepDefinition {
 
     @When("^The actor search the product (.*)$")
     public void searchAProduct(String product) {
+        OnStage.setTheStage(new OnlineCast());
         theActorCalled("Juan").can(
                 BrowseTheWeb.with(amazonCapabilities())
         );
@@ -48,6 +40,7 @@ public class AddToTheCarStepDefinition {
 
     @When("^The buyer search the product (.*)$")
     public void searchProduct(String product) {
+        OnStage.setTheStage(new OnlineCast());
         theActorCalled("Juan").attemptsTo(
                 Search.aProduct()
         );
