@@ -15,8 +15,7 @@ public class ProductToTheCar implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CARD_ARTICLE, isVisible()),
                 Click.on(CARD_ARTICLE),
-                Click.on(BUTTON_ADD_TO_CAR),
-                Click.on(BUTTON_CAR)
+                Click.on(BUTTON_ADD_TO_CAR)
         );
     }
 }

@@ -5,8 +5,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static co.com.amazon.userinterface.AmazonAppPage.BUTTON_LISTO_HOME;
-import static co.com.amazon.userinterface.AmazonAppPage.INPUT_FIND_PRODUCT;
+import static co.com.amazon.userinterface.AmazonAppPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class AProduct implements Task {

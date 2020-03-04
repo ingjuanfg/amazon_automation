@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Performable;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -19,10 +20,10 @@ public class Open implements Interaction {
 
         @Override
         public <T extends Actor> void performAs(T actor) {
-            AndroidDriver driver;
+            WebDriver driver;
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("automationName", "uiautomator2");
-            capabilities.setCapability("deviceName", "ESU4C18A16000384");
+            capabilities.setCapability("driver", "chrome");
+            capabilities.setCapability("chrome.driver", "C:/chromedriver.exe");
             capabilities.setCapability("platformVersion", "9");
             capabilities.setCapability("platformName", "Android");
             capabilities.setCapability("appPackage", "com.amazon.mShop.android.shopping");
@@ -31,7 +32,7 @@ public class Open implements Interaction {
             capabilities.setCapability("fullReset", false);
             capabilities.setCapability("noReset", false);
             try {
-                driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                driver = new AndroidDriver(new URL("http://127.0.0.1:4725/wd/hub"), capabilities);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
