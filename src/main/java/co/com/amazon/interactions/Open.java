@@ -4,36 +4,30 @@ import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Performable;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class Open implements Interaction {
+public class Open{
 
-        public static Performable app() {
-            return instrumented(Open.class);
-        }
-
-        @Override
-        public <T extends Actor> void performAs(T actor) {
-            AndroidDriver driver;
+        public static WebDriver app() {
+            WebDriver driver = null;
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("automationName", "uiautomator2");
-            capabilities.setCapability("deviceName", "ESU4C18A16000384");
-            capabilities.setCapability("platformVersion", "9");
-            capabilities.setCapability("platformName", "Android");
-            capabilities.setCapability("appPackage", "com.amazon.mShop.android.shopping");
-            capabilities.setCapability("appActivity", "com.amazon.mShop.splashscreen.StartupActivity");
-            capabilities.setCapability("autoGrantPermissions", true);
-            capabilities.setCapability("fullReset", false);
-            capabilities.setCapability("noReset", false);
+            capabilities.setCapability("driver", "chrome");
+            capabilities.setCapability("chrome.driver", "C:/chromedriver.exe");
+            capabilities.setCapability("wait.for.timeout ", "16000");
+            capabilities.setCapability("timeouts.implicitlywait", "1600");
             try {
-                driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+                driver = new RemoteWebDriver(new URL("http://www.google.com"), capabilities);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
+            return driver;
         }
 }
