@@ -13,4 +13,8 @@ public class Add{
     public static Performable productToTheCar() {
         return instrumented(ProductToTheCar.class);
     }
+
+    public static Performable theProductToTheCar() {
+        return instrumented(TheProductToTheCar.class);
+    }
 }

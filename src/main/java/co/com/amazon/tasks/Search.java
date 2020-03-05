@@ -14,7 +14,7 @@ public class Search {
         return instrumented(Product.class, product);
     }
 
-    public static Performable aProduct() {
-        return instrumented(AProduct.class);
+    public static Performable aProduct(String product) {
+        return instrumented(AProduct.class, product);
     }
 }

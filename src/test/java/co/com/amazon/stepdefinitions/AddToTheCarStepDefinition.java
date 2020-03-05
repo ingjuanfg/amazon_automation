@@ -1,74 +1,86 @@
 package co.com.amazon.stepdefinitions;
 
-import co.com.amazon.questions.ExistProductsQuestion;
+import co.com.amazon.questions.ExistProducts;
 import co.com.amazon.tasks.Add;
 import co.com.amazon.tasks.Search;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
 
-import static co.com.amazon.stepdefinitions.Hooks.Daniel;
+import static co.com.amazon.utils.DriverManager.amazonCapabilities;
+import static co.com.amazon.utils.DriverManager.webCapabilities;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class AddToTheCarStepDefinition {
 
     @When("^The user search the product (.*)$")
     public void searchTheProduct(String product) {
-        Daniel.attemptsTo(
+        OnStage.setTheStage(new OnlineCast());
+        theActorCalled("Juan").can(BrowseTheWeb.with(webCapabilities()));
+        theActorInTheSpotlight().attemptsTo(
                 Search.theProduct(product)
         );
     }
 
     @When("^The actor search the product (.*)$")
     public void searchAProduct(String product) {
-        Daniel.attemptsTo(
+        OnStage.setTheStage(new OnlineCast());
+        theActorCalled("Juan").can(
+                BrowseTheWeb.with(amazonCapabilities())
+        );
+    theActorInTheSpotlight().attemptsTo(
                 Search.product(product)
         );
     }
 
     @When("^The buyer search the product (.*)$")
     public void searchProduct(String product) {
-        Daniel.attemptsTo(
-                Search.aProduct()
+        OnStage.setTheStage(new OnlineCast());
+        theActorCalled("Juan").attemptsTo(
+                Search.aProduct(product)
         );
     }
 
-    @When("^add it to the car$")
+    @When("^add it to the cart$")
     public void addItToTheCar() {
-        Daniel.attemptsTo(
+        theActorInTheSpotlight().attemptsTo(
                 Add.toTheCar()
         );
     }
 
-    @When("^add the product to the car$")
+    @When("^add the product to the cart$")
     public void addToTheCar() {
-        Daniel.attemptsTo(
+        theActorInTheSpotlight().attemptsTo(
                 Add.productToTheCar()
         );
     }
 
-    @When("^put the product to the car$")
+    @When("^put the product to the cart$")
     public void putToTheCar() {
-        Daniel.attemptsTo(
+        theActorInTheSpotlight().attemptsTo(
+                //Add.theProductToTheCar()
         );
     }
 
-    @Then("^the user should see it in the car list$")
+    @Then("^the user should see it in the cart list$")
     public void theuserSholudSeeItInCarList() {
-        Daniel.should(
-                seeThat(ExistProductsQuestion.inCar())
+        theActorInTheSpotlight().should(
+                seeThat(ExistProducts.inCar())
         );
     }
 
-    @Then("^He should see it in the car list$")
+    @Then("^He should see it in the cart list$")
     public void theuserShouldSeeItInCar() {
-        Daniel.should(
-                seeThat(ExistProductsQuestion.inCar())
-        );
+        theActorInTheSpotlight().should(seeThat(ExistProducts.inTheCar()));
     }
 
-    @Then("^the buyer should see it in the car list$")
+    @Then("^the buyer should see it in the cart list$")
     public void theBuyerShouldSeeItInCar() {
-        Daniel.should(
+        theActorInTheSpotlight().should(
         );
     }
 }

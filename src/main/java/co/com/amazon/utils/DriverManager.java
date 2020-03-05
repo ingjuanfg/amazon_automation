@@ -1,6 +1,7 @@
 package co.com.amazon.utils;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -25,6 +26,14 @@ public class DriverManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return driver;
+    }
+
+    public static WebDriver webCapabilities() {
+        System.setProperty("webdriver.chrome.driver", "C:/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.amazon.com/-/es/");
+        driver.manage().window().maximize();
         return driver;
     }
 }
