@@ -62,7 +62,6 @@ public class AddToTheCarStepDefinition {
     @When("^put the product to the cart$")
     public void putToTheCar() {
         theActorInTheSpotlight().attemptsTo(
-                //Add.theProductToTheCar()
         );
     }
 
@@ -80,7 +79,9 @@ public class AddToTheCarStepDefinition {
 
     @Then("^the buyer should see it in the cart list$")
     public void theBuyerShouldSeeItInCar() {
-        theActorInTheSpotlight().should(
+        theActorInTheSpotlight().should(seeThat(
+                ExistProducts.addedInTheCar()
+                )
         );
     }
 }

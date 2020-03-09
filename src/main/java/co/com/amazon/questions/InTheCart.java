@@ -3,12 +3,12 @@ package co.com.amazon.questions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.amazon.userinterface.CarPage.LST_PRODUCTS;
+import static co.com.amazon.userinterface.AmazonPage.BUTTON_CAR;
 
-public class InCar implements Question<Boolean> {
+public class InTheCart implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        return LST_PRODUCTS.resolveFor(actor).isPresent();
+        return BUTTON_CAR.resolveFor(actor).isVisible();
     }
 }

@@ -26,6 +26,7 @@ public class AProduct implements Task {
                 Click.on(BUTTON_DONE_HOME),
                 Click.on(INPUT_FIND_PRODUCT),
                 Enter.theValue(product).into(INPUT_FIND_PRODUCT),
+                WaitUntil.the(SELECTED_PRODUCT_LIST, isVisible()),
                 Click.on(SELECTED_PRODUCT_LIST)
         );
     }

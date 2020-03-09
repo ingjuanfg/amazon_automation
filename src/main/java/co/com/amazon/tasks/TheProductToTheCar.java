@@ -12,7 +12,6 @@ public class TheProductToTheCar implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(CARD_PRODUCT_LIST),
                 WaitUntil.the(BUTTON_ADD_TO_CART, isVisible()),
                 Click.on(BUTTON_ADD_TO_CART),
                 Click.on(BUTTON_GO_TO_CART)

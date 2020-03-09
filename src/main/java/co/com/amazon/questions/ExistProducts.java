@@ -2,12 +2,16 @@ package co.com.amazon.questions;
 
 public class ExistProducts{
 
-    public static InCar inCar(){
-        return new InCar();
+    public static InCart inCar(){
+        return new InCart();
     }
 
-    public static InTheCar inTheCar(){
-        return new InTheCar();
+    public static InTheCart inTheCar(){
+        return new InTheCart();
+    }
+
+    public static AddedInCart addedInTheCar(){
+        return new AddedInCart();
     }
 
 }
